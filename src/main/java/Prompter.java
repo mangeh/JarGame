@@ -11,6 +11,10 @@ public class Prompter {
         String itemType = scanner.next();
         System.out.printf("What is the maximum amount of %s %n", itemType);
         Integer max = Integer.parseInt(scanner.next());
+        if (max  < 1 ) {
+            System.out.println("You cannot have 0 as max items, re-create your jar");
+            return createJar();
+        }
         return new Jar(itemType,max);
     }
 
@@ -29,7 +33,7 @@ public class Prompter {
             } else if (guess > jar.getAmountInJar() && guess <= jar.getMaximumAllowed()){
                 System.out.printf("Guess is too high %n" );
                 amountOfGuesses++;
-            } else {
+            } else if (guess < 0 || guess > jar.getMaximumAllowed()) {
                 System.out.println("Your guess is above the max value or below 0, try again");
             }
         }

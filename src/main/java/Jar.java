@@ -46,7 +46,7 @@ public class Jar {
     public void fill() {
         Random random = new Random();
         int maxItemsAllowed = getMaximumAllowed();
-        setAmountInJar(random.nextInt(maxItemsAllowed+1)+1);
+        setAmountInJar(random.nextInt(maxItemsAllowed)+1);
     }
 
 
